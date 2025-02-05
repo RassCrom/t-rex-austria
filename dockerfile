@@ -1,17 +1,11 @@
-FROM golang:1.20 as builder
+# Use the official t-rex image
+FROM sourcepole/t-rex
 
-# Set the working directory
-WORKDIR /app
+# Copy configuration file
+COPY config.toml /etc/config.toml
 
-# Install dependencies
-RUN apt-get update && apt-get install -y build-essential
-RUN go get github.com/t-rex-tileserver/t-rex
+# Expose the default t-rex port
+EXPOSE 6767
 
-# Copy the config file
-COPY config.toml /app/config.toml
-
-# Expose the necessary port
-EXPOSE 8080
-
-# Start the T-Rex server
-CMD ["t-rex", "serve", "--config", "/app/config.toml"]
+# Run t-rex in serve mode
+CMD ["t_rex", "serve", "--config", "/etc/config.toml"]
