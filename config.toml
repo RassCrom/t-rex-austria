@@ -1,0 +1,168 @@
+# t-rex configuration
+
+[service.mvt]
+viewer = true
+
+[[datasource]]
+dbconn = "postgresql://neondb_owner:npg_gYJDVCWzS63k@ep-white-frog-a9oknovo-pooler.gwc.azure.neon.tech/neondb?sslmode=require"
+name = "neondb"
+default = true
+
+[grid]
+predefined = "web_mercator"
+
+[[tileset]]
+name = "fs"
+extent = [11.3275405469815826,46.3722989999999982, 16.9443799999999989,49.0203360000000004]
+
+[[tileset.layer]]
+name = "fs"
+table_name = "fs"
+geometry_field = "wkb_geometry"
+geometry_type = "MULTIPOLYGON"
+srid = 3857
+buffer_size = 1
+make_valid = true
+simplify = true
+
+#[[tileset.layer.query]]
+#sql = """SELECT wkb_geometry FROM fs"""
+
+[[tileset]]
+name = "ai"
+extent = [9.581226, 46.7659456, 15.5740653, 47.7256559]
+
+[[tileset.layer]]
+name = "ai"
+table_name = "ai"
+geometry_field = "wkb_geometry"
+geometry_type = "MULTIPOLYGON"
+srid = 3857
+buffer_size = 1
+make_valid = true
+simplify = true
+
+[[tileset]]
+name = "ch"
+extent = [15.748870101773832, 47.681419, 17.160703, 48.838492869782705]
+
+[[tileset.layer]]
+name = "ch"
+table_name = "ch"
+geometry_field = "wkb_geometry"
+geometry_type = "MULTIPOLYGON"
+srid = 3857
+buffer_size = 1
+make_valid = true
+simplify = true
+
+[[tileset]]
+name = "egs"
+extent = [15.075199987873694, 47.534721640487845, 17.160703, 48.999347]
+
+[[tileset.layer]]
+name = "egs"
+table_name = "egs"
+geometry_field = "wkb_geometry"
+geometry_type = "MULTIPOLYGON"
+srid = 3857
+buffer_size = 1
+make_valid = true
+simplify = true
+
+[[tileset]]
+name = "el"
+extent = [9.529959, 46.505569, 15.988637419535747, 48.993976]
+
+[[tileset.layer]]
+name = "el"
+table_name = "el"
+geometry_field = "wkb_geometry"
+geometry_type = "MULTIPOLYGON"
+srid = 3857
+buffer_size = 1
+make_valid = true
+simplify = true
+
+[[tileset]]
+name = "eo"
+extent = [11.720298911757196, 46.372299, 17.160703, 49.020336]
+
+[[tileset.layer]]
+name = "eo"
+table_name = "eo"
+geometry_field = "wkb_geometry"
+geometry_type = "MULTIPOLYGON"
+srid = 3857
+buffer_size = 1
+make_valid = true
+simplify = true
+
+[[tileset]]
+name = "ept"
+extent = [9.554166667134155, 46.372299, 17.160703, 48.877754]
+
+[[tileset.layer]]
+name = "ept"
+table_name = "ept"
+geometry_field = "wkb_geometry"
+geometry_type = "MULTIPOLYGON"
+srid = 3857
+buffer_size = 1
+make_valid = true
+simplify = true
+
+[[tileset]]
+name = "er"
+extent = [9.529959, 46.372299, 17.160703, 49.020336]
+
+[[tileset.layer]]
+name = "er"
+table_name = "er"
+geometry_field = "wkb_geometry"
+geometry_type = "MULTIPOLYGON"
+srid = 3857
+buffer_size = 1
+make_valid = true
+simplify = true
+
+
+[[tileset]]
+name = "gse"
+extent = [12.477992425657158, 46.372299, 17.160703, 48.175441017020674]
+
+[[tileset.layer]]
+name = "gse"
+table_name = "gse"
+geometry_field = "wkb_geometry"
+geometry_type = "MULTIPOLYGON"
+srid = 3857
+buffer_size = 1
+make_valid = true
+simplify = true
+
+[[tileset]]
+name = "slb"
+extent = [11.415380399575174, 46.372299, 17.160703, 49.020336]
+
+[[tileset.layer]]
+name = "slb"
+table_name = "slb"
+geometry_field = "wkb_geometry"
+geometry_type = "MULTIPOLYGON"
+srid = 3857
+buffer_size = 1
+make_valid = true
+simplify = true
+
+
+[webserver]
+bind = "127.0.0.1"
+port = 6565
+
+[[webserver.static]]
+path = "/static"
+dir = "./public/"
+
+[cache.file]
+base = "D:/docs/study_tum/tum/1sem/mapping project/mvtcache"
